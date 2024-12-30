@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { ID, Query } from "node-appwrite";
+import { ID, Models, Query } from "node-appwrite";
 import { users } from "../appwrite.config";
 
 export const createUser = async (user: CreateUserParams) => {
@@ -11,11 +11,17 @@ export const createUser = async (user: CreateUserParams) => {
       user.phone,
       undefined,
       user.name
-    );
+    )
+    console.log({newUser})
+
+    return parseStringify(newUser);
+    
   } catch (error: any) {
     if (error && error?.code === 409) {
-      const documents = await users.list([Query.equal('email', [user.email])]);
-      return documents?.users[0];
+      const existingUser = await users.list([Query.equal("email", [user.email])]);
+      return existingUser?.users[0];
     }
   }
 };
+
+

@@ -57,7 +57,7 @@ const PatientForm = () => {
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 flex-1">
         <section className="mb-12 space-y-4 justify-items-center">
-          <h1 className="header sm:text-2xl sm:text-center">Des <strong className="text-blue-400">médécins </strong> 
+          <h1 className="header sm:text-2xl sm:text-center">Des <strong className="text-blue-400">Médécins </strong> 
              disponiblent 
              <span className="text-green-400 "> 24h/24</span></h1>
           <p className="text-dark-700">
