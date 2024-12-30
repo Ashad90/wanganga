@@ -1,16 +1,13 @@
 import { z } from "zod";
 
 export const UserFormValidation = z.object({
-  name: z
-    .string()
+  name: z.string()
     .min(2, "Le nom d'utilisateur doit au moins comporter 2 caractères.")
     .max(50, "Le nom d'utilisateur doit contenir au maximum 50 caractères."),
   email: z.string().email("Adresse email non-valide"),
-  phone: z
-    .string()
-    .refine(
+  phone: z.string().refine(
       (phone) => /^\+\d{10,15}$/.test(phone),
-      "Numéro de téléphone non-valide"
+      'Numéro de téléphone non-valide'
     ),
 });
 

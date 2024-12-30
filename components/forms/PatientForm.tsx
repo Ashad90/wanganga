@@ -4,8 +4,6 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-
-import { Button } from "@/components/ui/button";
 import { Form } from "@/components/ui/form";
 import CustomFormField from "../CustomFormField";
 import SubmitButton from "../SubmitButton";
@@ -70,7 +68,7 @@ const PatientForm = () => {
         <CustomFormField
           fieldType={FormFieldType.INPUT}
           control={form.control}
-          name="nom"
+          name="name"
           label="Nom complet"
           placeholder="Redemona Christ"
           iconSrc="/assets/icons/user.svg"
@@ -94,7 +92,7 @@ const PatientForm = () => {
           label="Numéro de téléphone"
           placeholder="(+236) 72 37 63 74"
         />
-        <SubmitButton isLoading={isLoading}>Prendre rendez-vous</SubmitButton>
+        <SubmitButton isLoading={isLoading}>Se connecter</SubmitButton>
       </form>
     </Form>
   );
